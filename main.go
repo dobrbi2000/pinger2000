@@ -70,7 +70,7 @@ func main() {
 	fmt.Printf("The longest request: %v\n", longest)
 	fmt.Printf("The shortest request: %v\n", shortest)
 	fmt.Printf("The number of successful requests: %v\n", successReq)
-	fmt.Printf("The number of successful requests: %v\n", failedReq)
+	fmt.Printf("The number of failed requests: %v\n", failedReq)
 	fmt.Printf("Total execution time of all requests: %v\n", totalFullTime)
 	fmt.Printf("Average request time: %v\n", totalTime/time.Duration(successReq))
 
