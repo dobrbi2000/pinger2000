@@ -46,6 +46,7 @@ func main() {
 	var longest time.Duration
 	var shortest time.Duration
 	var successReq int
+	var failedReq int
 
 	for i := 0; i < *threads; i++ {
 		select {
@@ -60,6 +61,8 @@ func main() {
 			successReq++
 		case err := <-errors:
 			fmt.Printf("The request error: %v\n", err)
+			failedReq++
+
 		}
 	}
 	totalFullTime := time.Since(fullTime)
@@ -67,6 +70,7 @@ func main() {
 	fmt.Printf("The longest request: %v\n", longest)
 	fmt.Printf("The shortest request: %v\n", shortest)
 	fmt.Printf("The number of successful requests: %v\n", successReq)
+	fmt.Printf("The number of successful requests: %v\n", failedReq)
 	fmt.Printf("Total execution time of all requests: %v\n", totalFullTime)
 	fmt.Printf("Average request time: %v\n", totalTime/time.Duration(successReq))
 
